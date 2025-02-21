@@ -94,8 +94,6 @@ Si la petición es exitosa, recibirás una respuesta con los datos generados.
 
 ## 🧰 **Utilidades**
 
-- 📝 **Colección de Postman**: Se encuentra en `/postman`, lista para importar y probar los endpoints fácilmente.
+- 📝 **Colección de Postman**: Se encuentra en `/postman`, lista para importar y probar los endpoints fácilmente. 🚀
 
 ---
-
-Si necesitas más detalles o quieres mejorar alguna sección, dime y lo ajustamos. 🚀
