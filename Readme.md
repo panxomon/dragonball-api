@@ -18,13 +18,20 @@ Este servicio permite crear un personaje de Dragon Ball.
 ```mermaid
 sequenceDiagram
     participant Cliente
-    participant API
-    participant DB
+    participant App
+    participant SQLite
+    participant API Externa
 
-    Cliente->>API: POST /character/v1
-    API->>DB: Guarda personaje en SQLite
-    DB-->>API: Confirmación de almacenamiento
-    API-->>Cliente: Respuesta con ID del personaje
+    Cliente->>App: POST http://localhost:8080/characters
+    App->>SQLite: ¿Existe personaje?
+    alt Personaje existe en BD
+        SQLite-->>App: Retorna personaje
+    else Personaje no existe en BD
+        App->>API Externa: Consulta personaje
+        API Externa-->>App: Respuesta con datos
+        App->>SQLite: Guarda personaje en BD
+    end
+    App-->>Cliente: Respuesta con personaje
 ```
 
 
