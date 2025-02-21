@@ -31,8 +31,7 @@ func (s *CreateCharacterService) CreateCharacter(ctx context.Context, name strin
 	}
 
 	character = &domain.Character{
-		Name: name, // Asignas el nombre que recibiste
-		// Otros campos necesarios para crear el personaje
+		Name: name, 
 	}
 
 	err = s.repository.Save(ctx, character)
