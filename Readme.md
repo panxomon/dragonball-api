@@ -1,7 +1,3 @@
-Aquí tienes un README mejor estructurado y con algunas mejoras en la claridad y el formato:
-
----
-
 # **Dragonball Service** 🐉
 
 Este servicio permite crear un personaje de Dragon Ball.
