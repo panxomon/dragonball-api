@@ -31,7 +31,6 @@ func HealthCheck(c *gin.Context) {
 
 func BootstrapMiddleware(components *bootstrap.Bootstrap) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// Pasa los componentes del bootstrap al contexto
 		ctx := context.WithValue(c.Request.Context(), BootstrapKey, components)
 		log.Ctx(ctx).Info().Str("project", "endpoint").Msg("Invoking endpoint")
 		c.Request = c.Request.WithContext(ctx)
