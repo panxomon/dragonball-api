@@ -24,8 +24,7 @@ func main() {
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to get sql db")
 	}
-
-	// Cambiar la carga de componentes para personajes en lugar de días festivos
+	
 	components, err := bootstrap.LoadComponents(db, env.UrlDragonBall)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to load components")
@@ -34,13 +33,11 @@ func main() {
 	if err := sqlite.RunMigrations(sqlDB); err != nil {
 		log.Fatal().Err(err).Msg("failed to run migrations")
 	}
-
-	// Configuración del enrutador con la base de la ruta y los nuevos componentes
+	
 	r := router.SetupRouter(env.BasePath, components)
 
 	log.Info().Msg("Starting server on :8080")
 
-	// Iniciar el servidor en la dirección configurada
 	if err := r.Run(env.ServerAddress); err != nil {
 		log.Fatal().Err(err).Msg("could not start server")
 	}
