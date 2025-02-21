@@ -1,0 +1,19 @@
+services:
+  dragonball-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+        - .env
+    ports:
+      - "8080:8080"
+    environment:
+      - ENV=development
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

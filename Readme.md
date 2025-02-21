@@ -1,0 +1,98 @@
+Aquí tienes un README mejor estructurado y con algunas mejoras en la claridad y el formato:
+
+---
+
+# **Dragonball Service** 🐉
+
+Este servicio permite crear un personaje de Dragon Ball.
+
+## 🚀 **Ejecución del Servicio**
+
+### **Prerequisitos** 📌
+
+- Go (versión 1.23 o superior). Descárgalo [aquí](https://golang.org/dl/).
+- Docker (opcional, si deseas ejecutarlo en contenedor).
+
+---
+
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant API
+    participant DB
+
+    Cliente->>API: POST /character/v1
+    API->>DB: Guarda personaje en SQLite
+    DB-->>API: Confirmación de almacenamiento
+    API-->>Cliente: Respuesta con ID del personaje
+```
+
+
+## 📥 **Instalación**
+
+1. **Clona este repositorio**:
+
+   ```bash
+   git clone git@github.com:panxomon/dragonball-api.git
+   ```
+
+2. **Accede al directorio del proyecto**:
+
+   ```bash
+   cd dragonball-api
+   ```
+
+3. **Instala las dependencias**:
+
+   ```bash
+   make dep
+   ```
+
+---
+
+## 🛠 **Uso**
+
+1. **Configura las variables de entorno** usando el archivo de ejemplo:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Ejecuta el servicio**:
+
+   ```bash
+   make run
+   ```
+
+Si prefieres Docker:
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## 📡 **Endpoints**
+
+### **Crear un personaje**
+Puedes crear un personaje usando la API con el siguiente comando `cURL`:
+
+```bash
+curl --location 'http://localhost:8080/characters' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Goku"
+}'
+```
+
+Si la petición es exitosa, recibirás una respuesta con los datos generados.
+
+---
+
+## 🧰 **Utilidades**
+
+- 📝 **Colección de Postman**: Se encuentra en `/postman`, lista para importar y probar los endpoints fácilmente.
+
+---
+
+Si necesitas más detalles o quieres mejorar alguna sección, dime y lo ajustamos. 🚀
